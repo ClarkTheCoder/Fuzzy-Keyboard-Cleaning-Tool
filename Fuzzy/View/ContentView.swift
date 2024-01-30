@@ -7,10 +7,6 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack {
-                Text("Fuzzy")
-                    .padding(.top, 30)
-                    .font(.largeTitle)
-
                 Image("fuzzkb")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -19,6 +15,9 @@ struct ContentView: View {
                     .overlay(
                         Circle().stroke(strokeColor, lineWidth: 7)
                     )
+                Text("Fuzzy - A Keyboard Cleaning tool")
+                    .font(.largeTitle)
+                    .padding(.bottom, 10)
 
                 VStack {
 //                    Text("This application is designed to disable your keyboard temporarily, allowing you to easily clean it without the risk of inadvertently turning on your Mac or generating unintended input. Click 'Lock Keyboard' to begin, and when you're done simply click 'Unlock Keyboard' or exit the app.")
@@ -45,7 +44,7 @@ struct ContentView: View {
                     Text("Your keyboard is locked. Please click 'Unlock Keyboard' button above." )
                         .foregroundColor(.red)
                 }else {
-                    Text("Your keyboard is unlocked")
+                    Text("Your keyboard is unlocked.")
                 }
 
                 Link("Installation & Troubleshooting", destination: URL(string: "https://carsonclark.dev")!)
