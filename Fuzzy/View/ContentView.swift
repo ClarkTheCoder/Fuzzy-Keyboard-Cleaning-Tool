@@ -20,8 +20,6 @@ struct ContentView: View {
                     .padding(.bottom, 10)
 
                 VStack {
-//                    Text("This application is designed to disable your keyboard temporarily, allowing you to easily clean it without the risk of inadvertently turning on your Mac or generating unintended input. Click 'Lock Keyboard' to begin, and when you're done simply click 'Unlock Keyboard' or exit the app.")
-//                        .font(.title2)
                     Text("This application is designed to disable your keyboard temporarily, allowing you to easily clean it without the risk of inadvertently turning on your Mac or generating unintended input. Please grant system permissions first.")
                         .font(.title2)
                     Text("Grant permissions via System Settings > Privacy & Security > Accessibility")
