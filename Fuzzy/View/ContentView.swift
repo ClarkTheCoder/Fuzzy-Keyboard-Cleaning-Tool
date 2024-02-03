@@ -5,7 +5,6 @@ struct ContentView: View {
     @State var isKeyboardLocked: Bool = false
     
     var body: some View {
-        ZStack {
             VStack {
                 Image("fuzzkb")
                     .resizable()
@@ -41,15 +40,17 @@ struct ContentView: View {
                 if isKeyboardLocked {
                     Text("Your keyboard is locked. Please click 'Unlock Keyboard' button above." )
                         .foregroundColor(.red)
-                }else {
+                } else {
                     Text("Your keyboard is unlocked.")
                 }
 
-                Link("Installation & Troubleshooting", destination: URL(string: "https://carsonclark.dev")!)
-                    .padding()
+                HStack {
+                    Link("Support", destination: URL(string: "https://carsonclark.dev/fuzzy/support.html")!)
+                    Link("Privacy", destination: URL(string: "https://carsonclark.dev/fuzzy/privacy.html")!)
+                }
+                .padding(.top, 15)
             }
         }
-    }
     
     var strokeColor: Color {
         return colorScheme == .light ? Color.black : Color.white
