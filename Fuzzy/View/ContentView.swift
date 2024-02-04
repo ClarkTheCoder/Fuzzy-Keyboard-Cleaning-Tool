@@ -4,6 +4,10 @@ struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     @State var isKeyboardLocked: Bool = false
     
+    init() {
+        requestAccessibilityAccess()
+    }
+    
     var body: some View {
             VStack {
                 Image("fuzzkb")

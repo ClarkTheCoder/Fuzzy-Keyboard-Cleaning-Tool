@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67B443802B6F839200FF5EA9 /* Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B4437F2B6F839200FF5EA9 /* Access.swift */; };
 		67D20A3D2B6884E400F55B4F /* FuzzyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D20A3C2B6884E400F55B4F /* FuzzyApp.swift */; };
 		67D20A3F2B6884E400F55B4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D20A3E2B6884E400F55B4F /* ContentView.swift */; };
 		67D20A412B6884E500F55B4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67D20A402B6884E500F55B4F /* Assets.xcassets */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		67B4437F2B6F839200FF5EA9 /* Access.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Access.swift; sourceTree = "<group>"; };
+		67B443812B6F84A800FF5EA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		67D20A392B6884E400F55B4F /* Fuzzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuzzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67D20A3C2B6884E400F55B4F /* FuzzyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuzzyApp.swift; sourceTree = "<group>"; };
 		67D20A3E2B6884E400F55B4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,9 +57,11 @@
 		67D20A3B2B6884E400F55B4F /* Fuzzy */ = {
 			isa = PBXGroup;
 			children = (
+				67B443812B6F84A800FF5EA9 /* Info.plist */,
 				67D20A3C2B6884E400F55B4F /* FuzzyApp.swift */,
 				67D20A4B2B6884ED00F55B4F /* View */,
 				67D20A4C2B68850000F55B4F /* KeyboardLock.swift */,
+				67B4437F2B6F839200FF5EA9 /* Access.swift */,
 				67D20A402B6884E500F55B4F /* Assets.xcassets */,
 				67D20A452B6884E500F55B4F /* Fuzzy.entitlements */,
 				67D20A422B6884E500F55B4F /* Preview Content */,
@@ -151,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67D20A4D2B68850000F55B4F /* KeyboardLock.swift in Sources */,
+				67B443802B6F839200FF5EA9 /* Access.swift in Sources */,
 				67D20A3F2B6884E400F55B4F /* ContentView.swift in Sources */,
 				67D20A3D2B6884E400F55B4F /* FuzzyApp.swift in Sources */,
 			);
@@ -286,12 +292,13 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Fuzzy/Preview Content\"";
 				DEVELOPMENT_TEAM = KYS955CYLL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fuzzy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Fuzzy;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -299,7 +306,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.carsonlark.Fuzzy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -316,12 +323,13 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Fuzzy/Preview Content\"";
 				DEVELOPMENT_TEAM = KYS955CYLL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fuzzy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Fuzzy;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -329,7 +337,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.carsonlark.Fuzzy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
