@@ -9,7 +9,11 @@ import SwiftUI
 
 struct SupportView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Link("Support", destination: URL(string: "https://carsonclark.dev/fuzzy/support.html")!).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            Link("FAQ", destination: URL(string: "https://carsonclark.dev/fuzzy/support.html")!).font(.title)
+            Link("Privacy", destination: URL(string: "https://carsonclark.dev/fuzzy/privacy.html")!).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+        }
     }
 }
 
