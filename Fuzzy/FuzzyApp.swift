@@ -12,7 +12,7 @@ struct FuzzyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .frame(minWidth: 1000, idealWidth: 1000, maxWidth: 1000, minHeight: 550, idealHeight: 550, maxHeight: 550)
+                .frame(minWidth:770, idealWidth: 770, maxWidth: 770, minHeight: 450, idealHeight: 450, maxHeight: 450)
                 .fixedSize()
         }.windowResizability(.contentSize)
     }

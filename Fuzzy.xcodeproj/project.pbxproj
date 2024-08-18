@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		67B443802B6F839200FF5EA9 /* Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B4437F2B6F839200FF5EA9 /* Access.swift */; };
+		67C783142C729C3400640B4C /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C783132C729C3400640B4C /* SidebarView.swift */; };
+		67C783162C72A0C200640B4C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C783152C72A0C200640B4C /* HomeView.swift */; };
+		67C783182C72A33C00640B4C /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C783172C72A33C00640B4C /* AboutView.swift */; };
+		67C7831A2C72A3C300640B4C /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C783192C72A3C300640B4C /* SupportView.swift */; };
 		67D20A3D2B6884E400F55B4F /* FuzzyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D20A3C2B6884E400F55B4F /* FuzzyApp.swift */; };
 		67D20A3F2B6884E400F55B4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D20A3E2B6884E400F55B4F /* ContentView.swift */; };
 		67D20A412B6884E500F55B4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67D20A402B6884E500F55B4F /* Assets.xcassets */; };
@@ -18,6 +22,10 @@
 /* Begin PBXFileReference section */
 		67B4437F2B6F839200FF5EA9 /* Access.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Access.swift; sourceTree = "<group>"; };
 		67B443812B6F84A800FF5EA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		67C783132C729C3400640B4C /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		67C783152C72A0C200640B4C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		67C783172C72A33C00640B4C /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		67C783192C72A3C300640B4C /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
 		67D20A392B6884E400F55B4F /* Fuzzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuzzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67D20A3C2B6884E400F55B4F /* FuzzyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuzzyApp.swift; sourceTree = "<group>"; };
 		67D20A3E2B6884E400F55B4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +89,10 @@
 			isa = PBXGroup;
 			children = (
 				67D20A3E2B6884E400F55B4F /* ContentView.swift */,
+				67C783132C729C3400640B4C /* SidebarView.swift */,
+				67C783152C72A0C200640B4C /* HomeView.swift */,
+				67C783172C72A33C00640B4C /* AboutView.swift */,
+				67C783192C72A3C300640B4C /* SupportView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -156,7 +168,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				67D20A4D2B68850000F55B4F /* KeyboardLock.swift in Sources */,
+				67C783182C72A33C00640B4C /* AboutView.swift in Sources */,
 				67B443802B6F839200FF5EA9 /* Access.swift in Sources */,
+				67C783142C729C3400640B4C /* SidebarView.swift in Sources */,
+				67C7831A2C72A3C300640B4C /* SupportView.swift in Sources */,
+				67C783162C72A0C200640B4C /* HomeView.swift in Sources */,
 				67D20A3F2B6884E400F55B4F /* ContentView.swift in Sources */,
 				67D20A3D2B6884E400F55B4F /* FuzzyApp.swift in Sources */,
 			);
@@ -218,7 +234,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -275,7 +291,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -292,14 +308,14 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Fuzzy/Preview Content\"";
 				DEVELOPMENT_TEAM = KYS955CYLL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fuzzy/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Fuzzy;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fuzzy Keyboard Cleaning Tool";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -323,14 +339,14 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Fuzzy/Preview Content\"";
 				DEVELOPMENT_TEAM = KYS955CYLL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fuzzy/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Fuzzy;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fuzzy Keyboard Cleaning Tool";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
