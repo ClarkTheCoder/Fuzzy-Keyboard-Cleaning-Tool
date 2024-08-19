@@ -3,83 +3,93 @@ import StoreKit
 
 struct HomeView: View {
     @Environment(\.colorScheme) var colorScheme
-    @StateObject var countdownTimer = CountdownTimer() // Initialize the countdown timer
+    @StateObject var countdownTimer = CountdownTimer()
     @State var isKeyboardLocked: Bool = false
     @State private var showAlert = false
-
+    @State private var accessGranted = AXIsProcessTrusted() // Check access status initially
+    
     var body: some View {
-        VStack {
-            Image("fuzzkb")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 170, height: 190)
-                .clipShape(Circle())
-                .overlay(
-                    Circle().stroke(strokeColor, lineWidth: 4)
-                )
-            Text("Fuzzy - Keyboard Cleaning Tool")
-                .font(.largeTitle)
-                .padding(.bottom, 2)
-          
+        ZStack {
             VStack {
-                Text("*Grant permissions via System Settings > Privacy & Security > Accessibility*")
-                    .padding()
-                    .font(.title3)
-            }
-
-            HStack {
-                Button(isKeyboardLocked ? "Unlock Keyboard" : "Lock Keyboard") {
-                    SoundManager.shared.playSound(named: "fuzzy-notification-sound")
+                Image("fuzzkb")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 170, height: 190)
+                    .clipShape(Circle())
+                    .overlay(
+                        Circle().stroke(strokeColor, lineWidth: 4)
+                    )
+                Text("Fuzzy - Keyboard Cleaning Tool")
+                    .font(.largeTitle)
+                    .padding(.bottom, 2)
+                
+                VStack {
+                    Text("Grant accessibility access via System Settings > Privacy & Security > Accessibility")
+                    Text("Locate 'Fuzzy' App and enable permissions")
+                    Text("Then close the app and reopen")
+                        .fontWeight(.bold)
+                }
+                
+                if accessGranted {
+                    HStack {
+                        Button(isKeyboardLocked ? "Unlock Keyboard" : "Lock Keyboard") {
+                                SoundManager.shared.playSound(named: "fuzzy-notification-sound")
+                            if isKeyboardLocked {
+                                unlockKeyboard()
+                            } else {
+                                lockKeyboard()
+                            }
+                        }
+                        .buttonStyle(.bordered)
+                        
+                        Button("30 Second Lock") {
+                                SoundManager.shared.playSound(named: "fuzzy-notification-sound")
+                            lockKeyboard(countdown: 30)
+                        }
+                        .buttonStyle(.bordered)
+                    } .padding(.top, 20)
+                    
                     if isKeyboardLocked {
-                        unlockKeyboard()
+                        VStack {
+                            Text("Your keyboard is locked. Please click 'Unlock Keyboard'")
+                                .foregroundColor(.red)
+                                .padding(.top, 2)
+                        }
                     } else {
-                        lockKeyboard()
+                        Text("Your keyboard is unlocked.").padding(.top, 2)
                     }
                 }
-                .buttonStyle(.bordered)
-                .padding(.top, 30)
-                
-                Button("20 Second Lock") {
-                    SoundManager.shared.playSound(named: "fuzzy-notification-sound")
-                    lockKeyboard(withCountdown: 20)
-                }
-                .buttonStyle(.bordered)
-                .padding(.top, 30)
+                Link("How to install Fuzzy", destination: URL(string: "https://www.youtube.com/watch?v=LR598lOSgYE&t=4s")!)
+                    .foregroundColor(.blue)
             }
-            
-            if isKeyboardLocked {
-                VStack {
-                    Text("Your keyboard is locked. Please click 'Unlock Keyboard'")
-                        .foregroundColor(.red)
-                        .padding(.top, 3)
-                }
-            } else {
-                Text("Your keyboard is unlocked.")
-                    .padding(.top, 3)
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Keyboard Locked"),
+                    message: Text(countdownTimerMessage),
+                    dismissButton: .default(Text("Unlock Now"), action: {
+                        unlockKeyboard()
+                    })
+                )
             }
-        }
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("Keyboard Locked"),
-                message: Text(countdownTimerMessage),
-                dismissButton: .default(Text("Unlock Now"), action: {
+            .onReceive(countdownTimer.$countdown) { remainingTime in
+                if remainingTime == 0 {
                     unlockKeyboard()
-                })
-            )
-        }
-        .onReceive(countdownTimer.$countdown) { remainingTime in
-            if remainingTime == 0 {
-                unlockKeyboard()
+                }
             }
-        }
-        .onAppear {
-            incrementHomepageVisits()
-            promptReviewIfAppropriate()
+            .onAppear {
+                accessGranted = AXIsProcessTrusted()
+                incrementHomepageVisits()
+                promptReviewIfAppropriate()
+            }
         }
     }
     
     // MARK: Helper methods
-    private func lockKeyboard(withCountdown seconds: Int? = nil) {
+    private func lockKeyboard(countdown seconds: Int? = nil) {
+        guard accessGranted else {
+            showAlert = true
+            return
+        }
         isKeyboardLocked = true
         showAlert = true
         if let seconds = seconds {
@@ -115,11 +125,10 @@ func incrementHomepageVisits() {
     UserDefaults.standard.set(currentCount + 1, forKey: "HPVC")
 }
 
-    
 func promptReviewIfAppropriate() {
     let currentCount = UserDefaults.standard.integer(forKey: "HPVC")
     let previouslyPrompted = UserDefaults.standard.bool(forKey: "pp")
-        
+    
     if currentCount >= 2 && !previouslyPrompted {
         SKStoreReviewController.requestReview()
         UserDefaults.standard.set(true, forKey: "pp")
