@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		676D8F992C7305C7005E2ABC /* fuzzy-notification-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 676D8F982C7305C7005E2ABC /* fuzzy-notification-sound.mp3 */; };
+		67A87EC42C72FD580031422A /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A87EC32C72FD580031422A /* SoundManager.swift */; };
 		67B443802B6F839200FF5EA9 /* Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B4437F2B6F839200FF5EA9 /* Access.swift */; };
 		67C783142C729C3400640B4C /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C783132C729C3400640B4C /* SidebarView.swift */; };
 		67C783162C72A0C200640B4C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C783152C72A0C200640B4C /* HomeView.swift */; };
 		67C783182C72A33C00640B4C /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C783172C72A33C00640B4C /* AboutView.swift */; };
 		67C7831A2C72A3C300640B4C /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C783192C72A3C300640B4C /* SupportView.swift */; };
+		67C7831E2C72C66500640B4C /* CountDownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C7831D2C72C66500640B4C /* CountDownTimer.swift */; };
 		67D20A3D2B6884E400F55B4F /* FuzzyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D20A3C2B6884E400F55B4F /* FuzzyApp.swift */; };
 		67D20A3F2B6884E400F55B4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D20A3E2B6884E400F55B4F /* ContentView.swift */; };
 		67D20A412B6884E500F55B4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67D20A402B6884E500F55B4F /* Assets.xcassets */; };
@@ -20,12 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		676D8F982C7305C7005E2ABC /* fuzzy-notification-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fuzzy-notification-sound.mp3"; sourceTree = "<group>"; };
+		67A87EC32C72FD580031422A /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		67B4437F2B6F839200FF5EA9 /* Access.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Access.swift; sourceTree = "<group>"; };
 		67B443812B6F84A800FF5EA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		67C783132C729C3400640B4C /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		67C783152C72A0C200640B4C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		67C783172C72A33C00640B4C /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		67C783192C72A3C300640B4C /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
+		67C7831D2C72C66500640B4C /* CountDownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownTimer.swift; sourceTree = "<group>"; };
 		67D20A392B6884E400F55B4F /* Fuzzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuzzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67D20A3C2B6884E400F55B4F /* FuzzyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuzzyApp.swift; sourceTree = "<group>"; };
 		67D20A3E2B6884E400F55B4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +52,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67A87EC72C72FF240031422A /* Resources  */ = {
+			isa = PBXGroup;
+			children = (
+				676D8F982C7305C7005E2ABC /* fuzzy-notification-sound.mp3 */,
+			);
+			path = "Resources ";
+			sourceTree = "<group>";
+		};
+		67C7831C2C72C5F800640B4C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				67C7831D2C72C66500640B4C /* CountDownTimer.swift */,
+				67A87EC32C72FD580031422A /* SoundManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		67D20A302B6884E400F55B4F = {
 			isa = PBXGroup;
 			children = (
@@ -65,11 +88,13 @@
 		67D20A3B2B6884E400F55B4F /* Fuzzy */ = {
 			isa = PBXGroup;
 			children = (
+				67A87EC72C72FF240031422A /* Resources  */,
+				67C7831C2C72C5F800640B4C /* Utils */,
 				67B443812B6F84A800FF5EA9 /* Info.plist */,
 				67D20A3C2B6884E400F55B4F /* FuzzyApp.swift */,
 				67D20A4B2B6884ED00F55B4F /* View */,
-				67D20A4C2B68850000F55B4F /* KeyboardLock.swift */,
 				67B4437F2B6F839200FF5EA9 /* Access.swift */,
+				67D20A4C2B68850000F55B4F /* KeyboardLock.swift */,
 				67D20A402B6884E500F55B4F /* Assets.xcassets */,
 				67D20A452B6884E500F55B4F /* Fuzzy.entitlements */,
 				67D20A422B6884E500F55B4F /* Preview Content */,
@@ -155,6 +180,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				676D8F992C7305C7005E2ABC /* fuzzy-notification-sound.mp3 in Resources */,
 				67D20A442B6884E500F55B4F /* Preview Assets.xcassets in Resources */,
 				67D20A412B6884E500F55B4F /* Assets.xcassets in Resources */,
 			);
@@ -172,9 +198,11 @@
 				67B443802B6F839200FF5EA9 /* Access.swift in Sources */,
 				67C783142C729C3400640B4C /* SidebarView.swift in Sources */,
 				67C7831A2C72A3C300640B4C /* SupportView.swift in Sources */,
+				67C7831E2C72C66500640B4C /* CountDownTimer.swift in Sources */,
 				67C783162C72A0C200640B4C /* HomeView.swift in Sources */,
 				67D20A3F2B6884E400F55B4F /* ContentView.swift in Sources */,
 				67D20A3D2B6884E400F55B4F /* FuzzyApp.swift in Sources */,
+				67A87EC42C72FD580031422A /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +350,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.carsonlark.Fuzzy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -353,7 +381,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.carsonlark.Fuzzy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

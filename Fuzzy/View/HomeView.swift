@@ -29,6 +29,7 @@ struct HomeView: View {
 
             HStack {
                 Button(isKeyboardLocked ? "Unlock Keyboard" : "Lock Keyboard") {
+                    SoundManager.shared.playSound(named: "fuzzy-notification-sound")
                     if isKeyboardLocked {
                         unlockKeyboard()
                     } else {
@@ -39,6 +40,7 @@ struct HomeView: View {
                 .padding(.top, 30)
                 
                 Button("20 Second Lock") {
+                    SoundManager.shared.playSound(named: "fuzzy-notification-sound")
                     lockKeyboard(withCountdown: 20)
                 }
                 .buttonStyle(.bordered)

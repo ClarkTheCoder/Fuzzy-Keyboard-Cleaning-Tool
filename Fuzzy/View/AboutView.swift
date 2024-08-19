@@ -17,7 +17,6 @@ struct AboutView: View {
                     .padding(.top, 70)
                     .frame(width: 470)
                 
-                
                 Text("This lightweight and free application is designed to disable your keyboard temporarily, allowing you to easily clean it without the risk of inadvertently turning on your Mac or generating unintended input. Please grant system permissions first. Please reach out if you encounter any difficulties with this software.")
                     .frame(width: 390)
                     .font(.title3)
