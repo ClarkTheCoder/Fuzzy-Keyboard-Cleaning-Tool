@@ -1,4 +1,5 @@
 import SwiftUI
+import StoreKit
 
 struct ContentView: View {
     init() {

@@ -23,11 +23,17 @@ struct AboutView: View {
                     .font(.title3)
                     .multilineTextAlignment(.center)
                 
-                Text("Built by Carson Cameron Clark.")
-                    .font(.footnote)
-                    .padding(.top, 125)
-                Link("carsonclark.dev", destination: URL(string: "https://carsonclark.dev")!)
-                    .font(.footnote)
+                Text("Please consider leaving a rating and some written feedback. We value all feedback, good or bad.")
+                    .frame(width: 390)
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 80)
+                
+                Spacer()
+                HStack {
+                    Link("Website", destination: URL(string: "https://carsonclark.dev")!)
+                    Link("Youtube", destination: URL(string: "https://www.youtube.com/@CarsonCameronClark")!)
+                    Link("Linkedin", destination: URL(string: "https://www.linkedin.com/in/carsoncameronclark/")!)
+                }.padding(.bottom, 20)
                 
             }
         }
