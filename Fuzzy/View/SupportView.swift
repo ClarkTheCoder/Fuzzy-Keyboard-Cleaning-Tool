@@ -9,7 +9,7 @@ struct SupportView: View {
             "Step 3: Click 'Open System Preferences'",
             "Step 4: Click '+' icon",
             "Step 5: Enter password",
-            "Step 6: Locate 'Fuzzy' within your list of applications",
+            "Step 6: Locate 'Fuzzy' within your list of Applications",
             "Step 7: Click 'Fuzzy' and then select 'Open'",
             "Step 8: Ensure permissions are toggled on",
         ]

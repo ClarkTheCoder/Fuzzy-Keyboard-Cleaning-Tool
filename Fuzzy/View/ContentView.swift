@@ -9,7 +9,6 @@ struct ContentView: View {
     var body: some View {
         NavigationSplitView {
             SidebarView()
-                .frame(minWidth: 100)
         } detail: {
             HomeView()
         }
