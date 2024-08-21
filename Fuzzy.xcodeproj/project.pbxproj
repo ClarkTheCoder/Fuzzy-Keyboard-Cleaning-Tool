@@ -10,6 +10,7 @@
 		676D8F992C7305C7005E2ABC /* fuzzy-notification-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 676D8F982C7305C7005E2ABC /* fuzzy-notification-sound.mp3 */; };
 		67A87EC42C72FD580031422A /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A87EC32C72FD580031422A /* SoundManager.swift */; };
 		67B443802B6F839200FF5EA9 /* Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B4437F2B6F839200FF5EA9 /* Access.swift */; };
+		67C5C3312C757A9D0035F136 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 67C5C3302C757A9D0035F136 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		67C783142C729C3400640B4C /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C783132C729C3400640B4C /* SidebarView.swift */; };
 		67C783162C72A0C200640B4C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C783152C72A0C200640B4C /* HomeView.swift */; };
 		67C783182C72A33C00640B4C /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C783172C72A33C00640B4C /* AboutView.swift */; };
@@ -46,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67C5C3312C757A9D0035F136 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +140,9 @@
 			dependencies = (
 			);
 			name = Fuzzy;
+			packageProductDependencies = (
+				67C5C3302C757A9D0035F136 /* FirebaseAnalyticsWithoutAdIdSupport */,
+			);
 			productName = Fuzzy;
 			productReference = 67D20A392B6884E400F55B4F /* Fuzzy.app */;
 			productType = "com.apple.product-type.application";
@@ -166,6 +171,9 @@
 				Base,
 			);
 			mainGroup = 67D20A302B6884E400F55B4F;
+			packageReferences = (
+				67C5C32F2C757A9D0035F136 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 67D20A3A2B6884E400F55B4F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -336,7 +344,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Fuzzy/Preview Content\"";
 				DEVELOPMENT_TEAM = KYS955CYLL;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -351,7 +359,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.carsonlark.Fuzzy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -368,7 +376,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Fuzzy/Preview Content\"";
 				DEVELOPMENT_TEAM = KYS955CYLL;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -383,7 +391,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.carsonlark.Fuzzy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -413,6 +421,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		67C5C32F2C757A9D0035F136 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		67C5C3302C757A9D0035F136 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67C5C32F2C757A9D0035F136 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 67D20A312B6884E400F55B4F /* Project object */;
 }
