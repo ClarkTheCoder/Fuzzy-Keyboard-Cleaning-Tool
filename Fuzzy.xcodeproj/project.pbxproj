@@ -21,6 +21,7 @@
 		67D20A412B6884E500F55B4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67D20A402B6884E500F55B4F /* Assets.xcassets */; };
 		67D20A442B6884E500F55B4F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67D20A432B6884E500F55B4F /* Preview Assets.xcassets */; };
 		67D20A4D2B68850000F55B4F /* KeyboardLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D20A4C2B68850000F55B4F /* KeyboardLock.swift */; };
+		67DFD2B52C7E4FBE00E37EB4 /* AppStoreTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DFD2B42C7E4FBE00E37EB4 /* AppStoreTracker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		67D20A432B6884E500F55B4F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		67D20A452B6884E500F55B4F /* Fuzzy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fuzzy.entitlements; sourceTree = "<group>"; };
 		67D20A4C2B68850000F55B4F /* KeyboardLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLock.swift; sourceTree = "<group>"; };
+		67DFD2B42C7E4FBE00E37EB4 /* AppStoreTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreTracker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			children = (
 				67C7831D2C72C66500640B4C /* CountDownTimer.swift */,
 				67A87EC32C72FD580031422A /* SoundManager.swift */,
+				67DFD2B42C7E4FBE00E37EB4 /* AppStoreTracker.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			files = (
 				67D20A4D2B68850000F55B4F /* KeyboardLock.swift in Sources */,
 				67C783182C72A33C00640B4C /* AboutView.swift in Sources */,
+				67DFD2B52C7E4FBE00E37EB4 /* AppStoreTracker.swift in Sources */,
 				67B443802B6F839200FF5EA9 /* Access.swift in Sources */,
 				67C783142C729C3400640B4C /* SidebarView.swift in Sources */,
 				67C7831A2C72A3C300640B4C /* SupportView.swift in Sources */,

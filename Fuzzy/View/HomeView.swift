@@ -7,6 +7,7 @@ struct HomeView: View {
     @State var isKeyboardLocked: Bool = false
     @State private var showAlert = false
     @State private var accessGranted = AXIsProcessTrusted() // Check access status initially
+    private let appStorePrompts = AppStoreTracker()
     
     var body: some View {
         ZStack {
@@ -78,8 +79,8 @@ struct HomeView: View {
             }
             .onAppear {
                 accessGranted = AXIsProcessTrusted()
-                incrementHomepageVisits()
-                promptReviewIfAppropriate()
+                AppStoreTracker().incrementHomepageVisits()
+                AppStoreTracker().promptReviewIfAppropriate()
             }
         }
     }
@@ -118,22 +119,6 @@ struct HomeView: View {
     }
 }
 
-// MARK: App Store Review Prompts
-
-func incrementHomepageVisits() {
-    let currentCount = UserDefaults.standard.integer(forKey: "HPVC")
-    UserDefaults.standard.set(currentCount + 1, forKey: "HPVC")
-}
-
-func promptReviewIfAppropriate() {
-    let currentCount = UserDefaults.standard.integer(forKey: "HPVC")
-    let previouslyPrompted = UserDefaults.standard.bool(forKey: "pp")
-    
-    if currentCount >= 2 && !previouslyPrompted {
-        SKStoreReviewController.requestReview()
-        UserDefaults.standard.set(true, forKey: "pp")
-    }
-}
 
 #Preview {
     HomeView()
