@@ -8,6 +8,7 @@ struct HomeView: View {
     @State private var showAlert = false
     @State private var accessGranted = AXIsProcessTrusted() // Check access status initially
     private let appStorePrompts = AppStoreTracker()
+    private let keyboardLock = KeyboardLock() // Instance of KeyboardLock
     
     var body: some View {
         ZStack {
@@ -34,18 +35,18 @@ struct HomeView: View {
                 if accessGranted {
                     HStack {
                         Button(isKeyboardLocked ? "Unlock Keyboard" : "Lock Keyboard") {
-                                SoundManager.shared.playSound(named: "fuzzy-notification-sound")
+                            SoundManager.shared.playSound(named: "fuzzy-notification-sound")
                             if isKeyboardLocked {
-                                unlockKeyboard()
+                                keyboardLock.unlockKeyboard(countdownTimer: countdownTimer, showAlert: &showAlert, isKeyboardLocked: &isKeyboardLocked)
                             } else {
-                                lockKeyboard()
+                                keyboardLock.lockKeyboard(countdownTimer: countdownTimer, accessGranted: accessGranted, showAlert: &showAlert, isKeyboardLocked: &isKeyboardLocked)
                             }
                         }
                         .buttonStyle(.bordered)
                         
                         Button("30 Second Lock") {
-                                SoundManager.shared.playSound(named: "fuzzy-notification-sound")
-                            lockKeyboard(countdown: 30)
+                            SoundManager.shared.playSound(named: "fuzzy-notification-sound")
+                            keyboardLock.lockKeyboard(countdownTimer: countdownTimer, seconds: 30, accessGranted: accessGranted, showAlert: &showAlert, isKeyboardLocked: &isKeyboardLocked)
                         }
                         .buttonStyle(.bordered)
                     } .padding(.top, 20)
@@ -66,51 +67,22 @@ struct HomeView: View {
             .alert(isPresented: $showAlert) {
                 Alert(
                     title: Text("Keyboard Locked"),
-                    message: Text(countdownTimerMessage),
+                    message: Text(keyboardLock.countdownTimerMessage(countdownTimer: countdownTimer)),
                     dismissButton: .default(Text("Unlock Now"), action: {
-                        unlockKeyboard()
+                        keyboardLock.unlockKeyboard(countdownTimer: countdownTimer, showAlert: &showAlert, isKeyboardLocked: &isKeyboardLocked)
                     })
                 )
             }
             .onReceive(countdownTimer.$countdown) { remainingTime in
                 if remainingTime == 0 {
-                    unlockKeyboard()
+                    keyboardLock.unlockKeyboard(countdownTimer: countdownTimer, showAlert: &showAlert, isKeyboardLocked: &isKeyboardLocked)
                 }
             }
             .onAppear {
                 accessGranted = AXIsProcessTrusted()
-                AppStoreTracker().incrementHomepageVisits()
-                AppStoreTracker().promptReviewIfAppropriate()
+                appStorePrompts.incrementHomepageVisits()
+                appStorePrompts.promptReviewIfAppropriate()
             }
-        }
-    }
-    
-    // MARK: Helper methods
-    private func lockKeyboard(countdown seconds: Int? = nil) {
-        guard accessGranted else {
-            showAlert = true
-            return
-        }
-        isKeyboardLocked = true
-        showAlert = true
-        if let seconds = seconds {
-            countdownTimer.start(seconds: seconds)
-        }
-        createEventTap()
-    }
-    
-    private func unlockKeyboard() {
-        isKeyboardLocked = false
-        showAlert = false
-        countdownTimer.stop()
-        disableEventTap()
-    }
-    
-    var countdownTimerMessage: String {
-        if let countdown = countdownTimer.countdown {
-            return "Your keyboard will be unlocked in \(countdown) seconds."
-        } else {
-            return "Your keyboard is locked."
         }
     }
     
@@ -118,7 +90,6 @@ struct HomeView: View {
         return colorScheme == .light ? Color.black : Color.white
     }
 }
-
 
 #Preview {
     HomeView()
