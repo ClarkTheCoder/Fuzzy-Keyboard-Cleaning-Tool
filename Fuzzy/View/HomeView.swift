@@ -1,5 +1,6 @@
 import SwiftUI
 import StoreKit
+import FirebaseAnalytics
 
 struct HomeView: View {
     @Environment(\.colorScheme) var colorScheme
@@ -41,12 +42,16 @@ struct HomeView: View {
                             } else {
                                 keyboardLock.lockKeyboard(countdownTimer: countdownTimer, accessGranted: accessGranted, showAlert: &showAlert, isKeyboardLocked: &isKeyboardLocked)
                             }
+                            
+                            FireBaseLogging.logMainButtonClick()
                         }
                         .buttonStyle(.bordered)
                         
                         Button("30 Second Lock") {
                             SoundManager.shared.playSound(named: "fuzzy-notification-sound")
                             keyboardLock.lockKeyboard(countdownTimer: countdownTimer, seconds: 30, accessGranted: accessGranted, showAlert: &showAlert, isKeyboardLocked: &isKeyboardLocked)
+            
+                            FireBaseLogging.log30SecButtonClick()
                         }
                         .buttonStyle(.bordered)
                     } .padding(.top, 20)
@@ -70,6 +75,9 @@ struct HomeView: View {
                     message: Text(keyboardLock.countdownTimerMessage(countdownTimer: countdownTimer)),
                     dismissButton: .default(Text("Unlock Now"), action: {
                         keyboardLock.unlockKeyboard(countdownTimer: countdownTimer, showAlert: &showAlert, isKeyboardLocked: &isKeyboardLocked)
+                        
+                        // Log a Firebase Analytics event for the "unlock now" button click
+                        FireBaseLogging.logUnlockNowButtonClick()
                     })
                 )
             }
@@ -82,6 +90,7 @@ struct HomeView: View {
                 accessGranted = AXIsProcessTrusted()
                 appStorePrompts.incrementHomepageVisits()
                 appStorePrompts.promptReviewIfAppropriate()
+                FireBaseLogging.logScreenView()
             }
         }
     }

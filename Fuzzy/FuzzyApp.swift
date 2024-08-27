@@ -6,9 +6,17 @@
 //
 
 import SwiftUI
+import FirebaseCore
+import FirebaseAnalytics
 
 @main
 struct FuzzyApp: App {
+    
+//    init() {
+//        FirebaseApp.configure()
+//        Analytics.setAnalyticsCollectionEnabled(true)
+//    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
